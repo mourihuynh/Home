@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass English | Nền Tảng Học Tiếng Anh Trực Tuyến Tương Tác</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      font-size: 17px;
+    }
+    @media (min-width: 1024px) {
+      :root {
+        font-size: 18px;
+      }
+    }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+    .font-display {
+      font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+    }
+    .hero-mesh {
+      background-color: #ffffff;
+      background-image:
+        radial-gradient(at 12% 15%, rgba(79, 70, 229, 0.10) 0px, transparent 48%),
+        radial-gradient(at 88% 12%, rgba(14, 165, 233, 0.11) 0px, transparent 45%),
+        radial-gradient(at 50% 90%, rgba(245, 158, 11, 0.08) 0px, transparent 50%);
+    }
+    .card-lift {
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -12px rgba(15, 23, 42, 0.12);
+    }
+    .compass-spin {
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .group:hover .compass-spin {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- ==================== THANH ĐIỀU HƯỚNG ==================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Logo Compass English -->
+      <button type="button" onclick="scrollToSection('top')" class="group flex items-center gap-3 text-left focus:outline-none">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-600 to-sky-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/25">
+          <svg class="w-6 h-6 compass-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="12" cy="12" r="9" />
+            <polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5 15.5 8.5" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-xl tracking-tight text-slate-900 block leading-none">
+            Compass <span class="text-indigo-600">English</span>
+          </span>
+          <span class="text-xs font-medium text-slate-500 mt-1 block">Định hướng tư duy • Làm chủ tiếng Anh</span>
+        </div>
+      </button>
+
+      <!-- Menu chính -->
+      <nav class="hidden md:flex items-center gap-2">
+        <button type="button" onclick="scrollToSection('apps-hub')" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">
+          Kho Học Liệu
+        </button>
+        <button type="button" onclick="scrollToSection('roadmap')" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">
+          Lộ Trình Học
+        </button>
+        <button type="button" onclick="scrollToSection('method')" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">
+          Phương Pháp
+        </button>
+        <button type="button" onclick="scrollToSection('faq')" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">
+          Hỏi Đáp
+        </button>
+      </nav>
+
+      <!-- Nút hành động -->
+      <div class="flex items-center gap-2.5">
+        <button type="button" onclick="openConfiguredLink('schedule')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition">
+          Lịch học & Lớp mở
+        </button>
+        <button type="button" onclick="scrollToSection('apps-hub')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm shadow-indigo-600/20 transition">
+          Vào Học Ngay
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="top" class="hero-mesh border-b border-slate-200/80 pt-10 pb-14 lg:pt-16 lg:pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <!-- Cột trái: Thông điệp chính -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Hệ Sinh Thái Học Tiếng Anh Trực Tuyến Tương Tác
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight">
+            Học Tiếng Anh Có Hệ Thống —
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-sky-500">
+              Hiểu Sâu Bản Chất, Phản Xạ Tự Nhiên
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+            Kết hợp lớp học trực tuyến tương tác cao cùng bộ ứng dụng web độc quyền của <strong class="text-slate-800">Compass English</strong>: từ chuẩn hóa phát âm IPA, làm chủ 12 thì &amp; 15 chuyên đề ngữ pháp đến luyện tập 20 mini-games mỗi ngày.
+          </p>
+
+          <!-- Cụm nút CTA -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <button type="button" onclick="scrollToSection('apps-hub')" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-base font-bold text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-600/25 transition">
+              Khám Phá Kho Web Học Tập
+              <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </button>
+
+            <button type="button" onclick="openConfiguredLink('contact')" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-base font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm transition">
+              Đăng Ký Test &amp; Tư Vấn Lộ Trình
+            </button>
+          </div>
+
+          <!-- Chỉ số nổi bật -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-200/80 max-w-xl">
+            <div>
+              <div class="font-display text-2xl sm:text-3xl font-extrabold text-indigo-600">44 Âm</div>
+              <div class="text-xs sm:text-sm text-slate-600 font-medium">Chuẩn hóa IPA trực quan</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl sm:text-3xl font-extrabold text-sky-600">15 Chủ Đề</div>
+              <div class="text-xs sm:text-sm text-slate-600 font-medium">Ngữ pháp từ nền tảng đến TOEIC</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl sm:text-3xl font-extrabold text-amber-500">20+ Games</div>
+              <div class="text-xs sm:text-sm text-slate-600 font-medium">Luyện từ vựng &amp; cấu trúc</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột phải: Bảng Truy Cập Nhanh Các Web Con -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl shadow-slate-200/60 p-6 sm:p-7 space-y-5">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Truy Cập Nhanh</span>
+                <h2 class="font-display text-xl font-extrabold text-slate-900">Cổng Học Liệu Trực Tuyến</h2>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+                Web Apps 24/7
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="quick-access-grid">
+              <!-- Render tự động từ cấu hình SITE_LINKS -->
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3">
+              <div class="text-xs sm:text-sm text-slate-600">
+                <strong class="text-slate-900 block">Học mọi lúc trên mọi thiết bị</strong>
+                Tương thích mượt mà cả máy tính và điện thoại.
+              </div>
+              <button type="button" onclick="scrollToSection('roadmap')" class="shrink-0 px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-bold text-slate-800 hover:border-indigo-400 hover:text-indigo-600 transition">
+                Xem lộ trình
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KHO HỌC LIỆU & WEB CON (APPS HUB) ==================== -->
+  <section id="apps-hub" class="py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div class="space-y-2 max-w-2xl">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Hệ Sinh Thái Công Cụ Học Tập</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Kho Ứng Dụng &amp; Trang Học Chuyên Đề
+          </h2>
+          <p class="text-slate-600 text-base">
+            Chọn từng phân hệ bên dưới để mở bài giảng tương tác, bảng phiên âm, sơ đồ ngữ pháp hoặc trò chơi luyện phản xạ.
+          </p>
+        </div>
+
+        <!-- Bộ lọc phân hệ -->
+        <div class="flex flex-wrap gap-2" id="hub-filters">
+          <button type="button" data-filter="all" onclick="filterModules('all')" class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-sm transition">
+            Tất cả
+          </button>
+          <button type="button" data-filter="foundation" onclick="filterModules('foundation')" class="filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 transition">
+            Phát âm &amp; Từ vựng
+          </button>
+          <button type="button" data-filter="grammar" onclick="filterModules('grammar')" class="filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 transition">
+            Ngữ pháp
+          </button>
+          <button type="button" data-filter="practice" onclick="filterModules('practice')" class="filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 transition">
+            Games &amp; Luyện đề
+          </button>
+        </div>
+      </div>
+
+      <!-- Lưới các thẻ Web Con -->
+      <div id="modules-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Render tự động bằng JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LỘ TRÌNH HỌC 4 CHẶNG ==================== -->
+  <section id="roadmap" class="py-14 lg:py-20 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="text-center max-w-2xl mx-auto space-y-2.5">
+        <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lộ Trình Chuẩn Hóa</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
+          4 Chặng Chinh Phục Tiếng Anh Từ Gốc Đến 650–750+ TOEIC
+        </h2>
+        <p class="text-slate-600 text-base">
+          Thiết kế tinh gọn cho học sinh THCS, THPT và người đi làm muốn xây lại nền tảng chắc chắn.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Chặng 1 -->
+        <div class="card-lift rounded-3xl bg-slate-50 border border-slate-200/90 p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-indigo-600 text-white text-xs font-extrabold">CHẶNG 01</span>
+              <span class="text-xs font-bold text-slate-500">Nền Tảng Âm</span>
+            </div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900">Chuẩn Hóa Phát Âm &amp; 44 Âm IPA</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Nhìn phiên âm đọc chuẩn từ điển, nắm vững trọng âm từ, nối âm và phân biệt các cặp âm dễ nhầm.
+            </p>
+          </div>
+          <button type="button" onclick="openConfiguredLink('ipa')" class="w-full py-2.5 px-4 rounded-xl bg-white border border-slate-300 text-sm font-bold text-indigo-600 hover:bg-indigo-50 hover:border-indigo-300 transition">
+            Mở Trang IPA →
+          </button>
+        </div>
+
+        <!-- Chặng 2 -->
+        <div class="card-lift rounded-3xl bg-slate-50 border border-slate-200/90 p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-sky-600 text-white text-xs font-extrabold">CHẶNG 02</span>
+              <span class="text-xs font-bold text-slate-500">Xương Sống Câu</span>
+            </div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900">Làm Chủ 12 Thì &amp; Cấu Trúc Cốt Lõi</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Hiểu bản chất dòng thời gian của 12 thì, câu bị động, mệnh đề quan hệ và câu điều kiện qua sơ đồ trực quan.
+            </p>
+          </div>
+          <button type="button" onclick="openConfiguredLink('tenses')" class="w-full py-2.5 px-4 rounded-xl bg-white border border-slate-300 text-sm font-bold text-sky-600 hover:bg-sky-50 hover:border-sky-300 transition">
+            Mở Trang Tenses →
+          </button>
+        </div>
+
+        <!-- Chặng 3 -->
+        <div class="card-lift rounded-3xl bg-slate-50 border border-slate-200/90 p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-extrabold">CHẶNG 03</span>
+              <span class="text-xs font-bold text-slate-500">Tăng Tốc Vốn Từ</span>
+            </div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900">Từ Vựng Chủ Đề &amp; Phản Xạ Games</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Học từ vựng theo cụm từ (collocations), họ từ (word family) và ghi nhớ chủ động qua hệ thống 20 mini-games.
+            </p>
+          </div>
+          <button type="button" onclick="openConfiguredLink('games')" class="w-full py-2.5 px-4 rounded-xl bg-white border border-slate-300 text-sm font-bold text-emerald-600 hover:bg-emerald-50 hover:border-emerald-300 transition">
+            Mở Games Hub →
+          </button>
+        </div>
+
+        <!-- Chặng 4 -->
+        <div class="card-lift rounded-3xl bg-slate-50 border border-slate-200/90 p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-amber-500 text-white text-xs font-extrabold">CHẶNG 04</span>
+              <span class="text-xs font-bold text-slate-500">Về Đích Mục Tiêu</span>
+            </div>
+            <h3 class="font-display text-lg font-extrabold text-slate-900">Luyện Đề Thực Chiến &amp; TOEIC 650–750+</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Tổng hợp 15 chuyên đề ngữ pháp nâng cao, chiến thuật xử lý đề thi và kiểm tra đánh giá năng lực định kỳ.
+            </p>
+          </div>
+          <button type="button" onclick="openConfiguredLink('grammar')" class="w-full py-2.5 px-4 rounded-xl bg-white border border-slate-300 text-sm font-bold text-amber-600 hover:bg-amber-50 hover:border-amber-300 transition">
+            Mở Grammar Hub →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PHƯƠNG PHÁP ĐÀO TẠO ==================== -->
+  <section id="method" class="py-14 lg:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-indigo-600/20 blur-2xl pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-72 h-72 rounded-full bg-sky-500/20 blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-5 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider">
+              Tại Sao Chọn Compass English?
+            </span>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold leading-tight">
+              Học Ít Nhồi Nhét — Thực Hành Trực Tiếp Ngay Trong Buổi Học
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Mỗi kiến thức lý thuyết đều đi kèm sơ đồ trực quan, âm thanh mẫu và bài luyện tập tương tác tức thì giúp học viên nhớ ngay tại lớp.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-extrabold">01</div>
+              <h3 class="font-display font-bold text-lg">Lớp Nhỏ Tương Tác Cao</h3>
+              <p class="text-sm text-slate-300">Giáo viên theo sát từng học viên qua Google Meet, sửa phát âm và lỗi ngữ pháp trực tiếp từng câu.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-300 flex items-center justify-center font-extrabold">02</div>
+              <h3 class="font-display font-bold text-lg">Học Liệu Web Độc Quyền</h3>
+              <p class="text-sm text-slate-300">Không còn slide chữ dày đặc; học viên thao tác bấm nghe, ghép câu và chơi game ngay trên trình duyệt.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-extrabold">03</div>
+              <h3 class="font-display font-bold text-lg">Ghi Nhớ Chủ Động (Active Recall)</h3>
+              <p class="text-sm text-slate-300">Ôn tập từ vựng và cấu trúc qua mini-quiz ngẫu nhiên không lặp lại, chấm điểm và giải thích chi tiết.</p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-extrabold">04</div>
+              <h3 class="font-display font-bold text-lg">Theo Dõi Tiến Độ Rõ Ràng</h3>
+              <p class="text-sm text-slate-300">Lộ trình chia nhỏ theo từng mô-đun A1–C2 giúp học viên biết rõ mình đang ở đâu và cần bổ sung gì.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HỎI ĐÁP NHANH (FAQ) ==================== -->
+  <section id="faq" class="pb-16 lg:pb-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Giải Đáp Thắc Mắc</span>
+        <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">Câu Hỏi Thường Gặp</h2>
+      </div>
+
+      <div class="space-y-3" id="faq-list">
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden">
+          <button type="button" onclick="toggleFaq(0)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+            <span>Người mất gốc hoàn toàn có theo học được chương trình tại Compass English không?</span>
+            <span id="faq-icon-0" class="text-indigo-600 text-xl font-extrabold">+</span>
+          </button>
+          <div id="faq-body-0" class="hidden px-6 pb-5 text-sm sm:text-base text-slate-600 border-t border-slate-100 pt-3">
+            Hoàn toàn được. Lộ trình bắt đầu từ bảng phiên âm IPA và các cấu trúc câu nền tảng nhất, giải thích cặn kẽ bằng tiếng Việt dễ hiểu kết hợp thực hành từng bước.
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden">
+          <button type="button" onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+            <span>Tôi có thể tự luyện tập trên các trang web con ngoài giờ học trên lớp không?</span>
+            <span id="faq-icon-1" class="text-indigo-600 text-xl font-extrabold">+</span>
+          </button>
+          <div id="faq-body-1" class="hidden px-6 pb-5 text-sm sm:text-base text-slate-600 border-t border-slate-100 pt-3">
+            Có. Toàn bộ hệ thống IPA, Grammar Hub, Tenses và 20 English Games mở 24/7 trên cả điện thoại và máy tính để bạn ôn bài bất cứ lúc nào.
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden">
+          <button type="button" onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+            <span>Các khóa học hiện tại phù hợp với những đối tượng nào?</span>
+            <span id="faq-icon-2" class="text-indigo-600 text-xl font-extrabold">+</span>
+          </button>
+          <div id="faq-body-2" class="hidden px-6 pb-5 text-sm sm:text-base text-slate-600 border-t border-slate-100 pt-3">
+            Chương trình được thiết kế chuyên biệt cho học sinh cấp 2, cấp 3 cần củng cố ngữ pháp – từ vựng trên trường và sinh viên, người đi làm luyện thi TOEIC mục tiêu 650–750+.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-white border-t border-slate-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-extrabold">C</div>
+        <div>
+          <span class="font-display font-extrabold text-slate-900">Compass English</span>
+          <span class="block text-xs text-slate-500">Nền tảng dạy và học Tiếng Anh trực tuyến tương tác</span>
+        </div>
+      </div>
+      <div class="text-xs sm:text-sm text-slate-500 text-center sm:text-right">
+        © 2026 Compass English. Thiết kế tối ưu cho Google Sites &amp; Web Apps.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Thông báo Toast khi bấm vào mục chưa gắn link -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 text-sm font-medium">
+    <span id="toast-msg">Chuyên đề này đang được cập nhật link!</span>
+  </div>
+
+  <!-- ==================== CẤU HÌNH LINK WEB CON & LOGIC ==================== -->
+  <script>
+    /**
+     * HƯỚNG DẪN CHÈN LINK WEB CON:
+     * Bạn chỉ cần thay dấu "#" bằng đường dẫn GitHub Pages hoặc Google Apps Script WebApp của từng trang.
+     * Những mục để "#" sẽ tự động hiển thị nhãn "Sắp ra mắt".
+     */
+    const SITE_LINKS = {
+      ipa: "#",        // Ví dụ: "https://mourihuynh.github.io/Landing-IPA/"
+      grammar: "https://mourihuynh.github.io/Landing-Grammarhub/",
+      tenses: "#",     // Ví dụ: "https://mourihuynh.github.io/Landing-Tenses/"
+      vocab: "#",      // Ví dụ: "https://mourihuynh.github.io/Vocab-Hub/"
+      games: "#",      // Ví dụ: "https://mourihuynh.github.io/English-Games/"
+      exam: "#",       // Ví dụ: Link phòng luyện đề / kiểm tra đầu vào
+      schedule: "#",   // Ví dụ: Link lịch khai giảng / Google Form đăng ký
+      contact: "#"     // Ví dụ: Link Zalo / Facebook / Form tư vấn
+    };
+
+    const MODULES_DATA = [
+      {
+        id: "ipa",
+        category: "foundation",
+        badge: "Nền Tảng Phát Âm",
+        badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-200",
+        accentBg: "from-indigo-600 to-blue-500",
+        title: "Bảng Phiên Âm Quốc Tế IPA",
+        desc: "Mô hình khẩu hình môi - răng - lưỡi trực quan cho 44 âm, nghe giọng Anh-Mỹ / Anh-Anh và bài test tai nghe.",
+        stats: "44 Âm • Audio Chuẩn",
+        quickAccess: true
+      },
+      {
+        id: "grammar",
+        category: "grammar",
+        badge: "Hệ Thống Ngữ Pháp",
+        badgeColor: "bg-sky-50 text-sky-700 border-sky-200",
+        accentBg: "from-sky-600 to-cyan-500",
+        title: "Grammar Hub (15 Chuyên Đề)",
+        desc: "Bản đồ 15 chuyên đề ngữ pháp A1–C2 kèm sơ đồ cấu trúc, công thức cốt lõi và phòng lab lắp ghép câu.",
+        stats: "15 Chuyên Đề • A1–C2",
+        quickAccess: true
+      },
+      {
+        id: "tenses",
+        category: "grammar",
+        badge: "Trục Thời Gian",
+        badgeColor: "bg-violet-50 text-violet-700 border-violet-200",
+        accentBg: "from-violet-600 to-purple-500",
+        title: "Tenses Hub — Hệ Thống 12 Thì",
+        desc: "Bộ mô phỏng trục thời gian SVG động, so sánh các cặp thì dễ nhầm lẫn và bài giảng chi tiết từng thì.",
+        stats: "12 Thì • Sơ Đồ Động",
+        quickAccess: true
+      },
+      {
+        id: "games",
+        category: "practice",
+        badge: "Học Qua Trò Chơi",
+        badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
+        accentBg: "from-emerald-600 to-teal-500",
+        title: "English Games Hub (20 Games)",
+        desc: "20 trò chơi tương tác rèn từ vựng, IPA, collocations và toàn bộ cấu trúc ngữ pháp có tính điểm XP & Streak.",
+        stats: "20 Mini-Games • Lưu Tiến Độ",
+        quickAccess: true
+      },
+      {
+        id: "vocab",
+        category: "foundation",
+        badge: "Từ Vựng Chủ Đề",
+        badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
+        accentBg: "from-amber-500 to-orange-500",
+        title: "Kho Từ Vựng & TOEIC 650–750+",
+        desc: "Hệ thống mô-đun 50 từ vựng theo chủ đề, tích hợp phiên âm IPA, audio phát âm và quiz ôn tập không lặp.",
+        stats: "50 Từ / Mô-đun • Active Recall",
+        quickAccess: false
+      },
+      {
+        id: "exam",
+        category: "practice",
+        badge: "Đánh Giá Năng Lực",
+        badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
+        accentBg: "from-rose-600 to-pink-500",
+        title: "Phòng Luyện Đề & Kiểm Tra",
+        desc: "Bộ đề kiểm tra tổng hợp ngữ pháp, luyện thi vào 10, THPT Quốc Gia và đề mô phỏng TOEIC chấm điểm tự động.",
+        stats: "Đề Thi Mẫu • Chấm Tự Động",
+        quickAccess: false
+      }
+    ];
+
+    function isValidUrl(url) {
+      return url && url.trim() !== "" && url.trim() !== "#";
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const toastMsg = document.getElementById("toast-msg");
+      toastMsg.textContent = message;
+      toast.classList.remove("hidden");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add("hidden");
+      }, 3200);
+    }
+
+    function openConfiguredLink(key) {
+      const url = SITE_LINKS[key];
+      if (isValidUrl(url)) {
+        window.open(url, "_blank", "noopener,noreferrer");
+      } else {
+        showToast("Link trang này chưa được gắn. Bạn có thể cập nhật trong biến SITE_LINKS!");
+      }
+    }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function renderQuickAccess() {
+      const container = document.getElementById("quick-access-grid");
+      const quickItems = MODULES_DATA.filter(m => m.quickAccess);
+      container.innerHTML = quickItems.map(item => {
+        const active = isValidUrl(SITE_LINKS[item.id]);
+        return `
+          <button type="button" onclick="openConfiguredLink('${item.id}')"
+            class="text-left p-4 rounded-2xl border ${active ? 'border-slate-200 hover:border-indigo-400 bg-white' : 'border-slate-200/80 bg-slate-50/70'} hover:shadow-md transition flex flex-col justify-between gap-3">
+            <div class="flex items-center justify-between gap-2">
+              <span class="w-9 h-9 rounded-xl bg-gradient-to-br ${item.accentBg} text-white flex items-center justify-center font-display font-extrabold text-sm shadow-sm">
+                ${item.title.slice(0, 2).toUpperCase()}
+              </span>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full ${active ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-200/80 text-slate-600'}">
+                ${active ? 'Sẵn sàng' : 'Sắp mở'}
+              </span>
+            </div>
+            <div>
+              <div class="font-display font-bold text-sm text-slate-900 line-clamp-1">${item.title}</div>
+              <div class="text-xs text-slate-500 mt-0.5">${item.stats}</div>
+            </div>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function renderModules(filter = "all") {
+      const grid = document.getElementById("modules-grid");
+      const list = filter === "all" ? MODULES_DATA : MODULES_DATA.filter(m => m.category === filter);
+
+      grid.innerHTML = list.map(item => {
+        const active = isValidUrl(SITE_LINKS[item.id]);
+        return `
+          <article class="card-lift bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-7 flex flex-col justify-between space-y-6">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-bold border ${item.badgeColor}">
+                  ${item.badge}
+                </span>
+                <span class="text-xs font-bold ${active ? 'text-emerald-600' : 'text-amber-600'}">
+                  ${active ? '● Đang hoạt động' : '○ Chờ gắn link'}
+                </span>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="font-display text-xl font-extrabold text-slate-900">${item.title}</h3>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed">${item.desc}</p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+              <span class="text-xs font-bold text-slate-500">${item.stats}</span>
+              <button type="button" onclick="openConfiguredLink('${item.id}')"
+                class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-gradient-to-r ${item.accentBg} hover:opacity-95 shadow-sm transition">
+                ${active ? 'Mở Trang Học' : 'Gắn Link Sau'}
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function filterModules(category) {
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        const isCurrent = btn.getAttribute("data-filter") === category;
+        btn.className = isCurrent
+          ? "filter-btn active px-4 py-2 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-sm transition"
+          : "filter-btn px-4 py-2 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 transition";
+      });
+      renderModules(category);
+    }
+
+    function toggleFaq(index) {
+      const body = document.getElementById(`faq-body-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      const isHidden = body.classList.contains("hidden");
+      body.classList.toggle("hidden");
+      icon.textContent = isHidden ? "−" : "+";
+    }
+
+    // Khởi tạo giao diện
+    renderQuickAccess();
+    renderModules("all");
+  </script>
+</body>
+</html>
